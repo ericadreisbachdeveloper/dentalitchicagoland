@@ -63,6 +63,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
 require_once FILEPATH . 'asset-helper.php';
 ?>
 
+
+<link rel="ai-catalog" href="<?php echo SITE; ?>/.well-known/ai-catalog.json">
+<link rel="ard" href="<?php echo SITE; ?>/.well-known/ard.json">
+
 <?php /* global priority styles - inline  */ ?>
 <style nonce="<?php echo( htmlspecialchars($nonce) ); ?>">
 <?php echo( file_get_contents(FILEPATH . 'css-priority.css') ); ?> </style>
