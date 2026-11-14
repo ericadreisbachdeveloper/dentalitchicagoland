@@ -1,0 +1,49 @@
+// _typography.scss
+
+@font-face {
+    font-family: 'dmsans';
+    src: url('/assets/fonts/dmsans-400.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'dmsans-500';
+    src: url('/assets/fonts/dmsans-500.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'dmsans-600';
+    src: url('/assets/fonts/dmsans-600.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'dmsans-700';
+    src: url('/assets/fonts/dmsans-700.woff2') format('woff2');
+    font-display: swap;
+}
+
+%dmsans {
+    font-family: 'dmsans', sans-serif;
+}
+
+%dmsans-500 {
+    font-family: 'dmsans-500', sans-serif;
+}
+
+%dmsans-600 {
+    font-family: 'dmsans-600', sans-serif;
+}
+
+%dmsans-700 {
+    font-family: 'dmsans-700', sans-serif;
+}
+
+
+
+
+
+.h1 {
+    @extend %dmsans-700;
+}

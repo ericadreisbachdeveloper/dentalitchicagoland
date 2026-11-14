@@ -3,12 +3,11 @@
 if ( $_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === 'dentalitchicagoland.local' ) {
     define('LOCAL', 'local');
     define('SITE', 'https://dentalitchicagoland.local/');
-    define('FILEPATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 } else {
     define('SITE', 'https://' . $_SERVER['HTTP_HOST']);
-    define('FILEPATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 }
 
+define('FILEPATH', $_SERVER['DOCUMENT_ROOT'] . '/');
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET' && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME']) ) {
     header('HTTP/1.0 403 Forbidden', true, 403);

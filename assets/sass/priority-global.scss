@@ -1,0 +1,14 @@
+// priority-global.scss
+
+@use '_typography' as *;
+
+body {
+    @extend %dmsans;
+    margin: 0;
+}
+
+.container {
+    max-width: calc(1200rem/ 16);
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,5 +1,10 @@
-<?php require './header.php'; ?>
+<?php
 
+$bodyclass       = 'body-home';
+$metadescription = 'This is a test';
+require 'header.php';
+$ogimg             = SITE . '/public/og-img.jpg';
+$ogimg_description = ''; ?>
 
 
 <section class="section-hero">
