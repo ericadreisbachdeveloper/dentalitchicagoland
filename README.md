@@ -1,8 +1,5 @@
 # Cusp Dental IT — PHP site
 
-## Run locally
-    php -S localhost:8000
-Then open http://localhost:8000
 
 ## Structure
     index.php                 Home page (sections: hero, team video, trust, process, results, contact/FAQ)
@@ -27,7 +24,7 @@ Then open http://localhost:8000
     sass assets/sass/main.scss assets/css/main.min.css --style=compressed --no-source-map
     sass --watch assets/sass/main.scss:assets/css/main.css
 
-## To replace before launch
+## Tech Debt
 - SITE_URL / phone / email in partials/config.php
 - assets/img/team-placeholder.jpg (cropped from the mockup) and og-image.jpg
 - Testimonials and case-study stats in index.php with real, approved ones
