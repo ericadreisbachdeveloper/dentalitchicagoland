@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: $white;
+  border: 1px solid $line;
+  border-radius: $radius-sm;
+
+  @include mq(md) { grid-template-columns: repeat(4, 1fr); }
+
+  &__item {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid $line;
+
+    &:nth-child(odd) { border-right: 1px solid $line; }
+
+    @include mq(md) {
+      border-bottom: 0;
+      border-right: 1px solid $line;
+
+      &:last-child { border-right: 0; }
+    }
+  }
+
+  dt {
+    font-size: 1.15rem;
+    font-weight: $fw-extrabold;
+    color: $ink-900;
+    letter-spacing: -0.02em;
+  }
+
+  dd {
+    font-size: .75rem;
+    color: $ink-500;
+  }
+}

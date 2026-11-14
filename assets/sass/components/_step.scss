@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.step {
+  position: relative;
+  padding: 2rem 1.5rem 2.25rem;
+  background: $white;
+  font-size: .78rem;
+  color: $ink-500;
+
+  &__num {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 2.5rem;
+    font-weight: $fw-extrabold;
+    line-height: 1;
+    color: $tint;
+    letter-spacing: -0.04em;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-bottom: 1.25rem;
+    border-radius: $radius-sm;
+    background: $blue-100;
+    color: $blue-600;
+
+    &::before { content: ""; }
+
+    &--clipboard::before { @include mask-icon("../img/icons/clipboard.svg"); }
+    &--route::before     { @include mask-icon("../img/icons/route.svg"); }
+    &--monitor::before   { @include mask-icon("../img/icons/monitor.svg"); }
+    &--headset::before   { @include mask-icon("../img/icons/headset.svg"); }
+  }
+
+  &__title {
+    margin-bottom: .6rem;
+    font-size: .95rem;
+  }
+}

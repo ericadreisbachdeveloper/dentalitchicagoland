@@ -1,0 +1,43 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.contact {
+  &__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: start;
+
+    @include mq(lg) { grid-template-columns: 1fr 1.15fr; gap: 4rem; }
+  }
+
+  &__intro > p { font-size: .85rem; max-width: 26rem; }
+}
+
+.faq {
+  @include card(2rem);
+  box-shadow: $shadow;
+}
+
+.phone-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid $line;
+  min-width: min(100%, 22rem);
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: $yellow-400;
+    color: $navy-900;
+  }
+
+  small { display: block; font-size: .72rem; color: $ink-500; }
+  strong { font-size: .95rem; color: $ink-900; }
+
+  &:hover strong { color: $blue-600; }
+}

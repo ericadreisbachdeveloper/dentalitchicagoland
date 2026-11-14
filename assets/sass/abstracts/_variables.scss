@@ -1,0 +1,58 @@
+// -------------------------------------------------------------
+// Design tokens (sampled from the desktop mockup)
+// -------------------------------------------------------------
+
+// Brand
+$navy-900: #0b2038;
+$navy-800: #0f2a47;   // header, results band, footer
+$navy-700: #17385c;
+$blue-600: #2565b5;   // accent headline text, cards
+$blue-500: #2f74c8;
+$blue-100: #e6eef8;
+$yellow-400: #ffdf3a; // primary CTA
+$yellow-300: #ffe866;
+$green-500: #22a06b;
+
+// Neutrals
+$ink-900: #0f1b2b;
+$ink-700: #36465a;
+$ink-500: #66768a;
+$ink-300: #a9b4c2;
+$line: #e2e8f0;
+$tint: #f3f6fa;       // light section backgrounds
+$white: #ffffff;
+
+// Typography
+$font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+
+// Layout
+$container-max: 1080px;
+$container-narrow: 720px;
+$container-media: 860px;
+$gutter: 1.5rem;
+$header-h: 76px;
+
+// Radius & shadow
+$radius-sm: 4px;
+$radius: 8px;
+$radius-lg: 14px;
+$shadow-sm: 0 1px 2px rgba($navy-900, .06);
+$shadow: 0 10px 30px rgba($navy-900, .10);
+$shadow-lg: 0 24px 60px rgba($navy-900, .18);
+
+// Motion
+$ease: cubic-bezier(.2, .7, .2, 1);
+$dur: .25s;
+
+// Breakpoints (mobile-first, used by mixins.mq)
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);

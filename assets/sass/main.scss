@@ -1,0 +1,43 @@
+// =============================================================
+// Cusp Dental IT — main stylesheet
+// Compile:  npx sass assets/sass/main.scss assets/css/main.min.css --style=compressed --no-source-map
+// Watch:    npx sass --watch assets/sass/main.scss:assets/css/main.css
+// =============================================================
+
+// 1. Abstracts — no CSS output, just tools
+@use "abstracts/variables";
+@use "abstracts/functions";
+@use "abstracts/mixins";
+
+// 2. Base
+@use "base/reset";
+@use "base/root";
+@use "base/typography";
+@use "base/utilities";
+
+// 3. Layout
+@use "layout/container";
+@use "layout/header";
+@use "layout/nav";
+@use "layout/footer";
+
+// 4. Components
+@use "components/buttons";
+@use "components/eyebrow";
+@use "components/avatars";
+@use "components/stats";
+@use "components/dashboard";
+@use "components/video-card";
+@use "components/testimonial";
+@use "components/step";
+@use "components/case-card";
+@use "components/accordion";
+@use "components/checklist";
+
+// 5. Sections (page-specific composition)
+@use "sections/hero";
+@use "sections/team";
+@use "sections/trust";
+@use "sections/process";
+@use "sections/results";
+@use "sections/contact";

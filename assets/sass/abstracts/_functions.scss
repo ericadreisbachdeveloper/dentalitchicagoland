@@ -1,0 +1,13 @@
+@use "sass:math";
+
+// px → rem
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Fluid size between two viewport widths: fluid(28, 52) => clamp(...)
+@function fluid($min-px, $max-px, $min-vw: 375, $max-vw: 1200) {
+  $slope: math.div($max-px - $min-px, $max-vw - $min-vw);
+  $intercept: $min-px - $slope * $min-vw;
+  @return clamp(#{rem($min-px)}, #{rem($intercept)} + #{$slope * 100}vw, #{rem($max-px)});
+}

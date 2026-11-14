@@ -1,0 +1,39 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+.container {
+  width: 100%;
+  max-width: calc(#{$container-max} + #{$gutter * 2});
+  margin-inline: auto;
+  padding-inline: $gutter;
+
+  &--narrow { max-width: calc(#{$container-narrow} + #{$gutter * 2}); }
+  &--media  { max-width: calc(#{$container-media} + #{$gutter * 2}); }
+}
+
+.section {
+  padding-block: fluid(64, 104);
+
+  &--tint { background: $tint; }
+
+  &--dark {
+    background: $navy-800;
+    color: rgba($white, .75);
+
+    h2, h3 { color: $white; }
+  }
+}
+
+.section-head {
+  margin-bottom: 2.5rem;
+
+  &--split {
+    @include mq(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+}

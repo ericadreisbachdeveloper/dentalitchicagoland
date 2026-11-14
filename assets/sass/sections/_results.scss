@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.results {
+  position: relative;
+
+  // Yellow accent bar on the bottom-left edge
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 38%;
+    height: 4px;
+    background: $yellow-400;
+  }
+
+  .section-title { margin-bottom: 2.5rem; }
+}
+
+.case-grid {
+  display: grid;
+  gap: 1rem;
+
+  @include mq(md) { grid-template-columns: repeat(3, 1fr); }
+}

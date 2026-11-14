@@ -1,0 +1,65 @@
+@use "../abstracts/variables" as *;
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $white;
+  border-radius: $radius-sm;
+  transition: transform $dur $ease, box-shadow $dur $ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    font-size: .68rem;
+    font-weight: $fw-bold;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: $ink-900;
+  }
+
+  &__stat {
+    display: flex;
+    align-items: flex-end;
+    gap: .6rem;
+    padding: 2.25rem 1.25rem 1.5rem;
+
+    strong {
+      font-size: 2.6rem;
+      line-height: .9;
+      font-weight: $fw-extrabold;
+      letter-spacing: -0.04em;
+    }
+
+    span {
+      max-width: 5rem;
+      font-size: .68rem;
+      line-height: 1.25;
+    }
+  }
+
+  &--blue   &__stat { background: $blue-600;   color: $white; }
+  &--yellow &__stat { background: $yellow-400; color: $navy-900; }
+  &--navy   &__stat { background: $navy-900;   color: $white; }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding: 1.4rem 1.25rem 1.6rem;
+    flex: 1;
+    font-size: .78rem;
+    color: $ink-500;
+
+    h3 { color: $ink-900; font-size: .95rem; }
+
+    .link-arrow { margin-top: auto; padding-top: .5rem; }
+  }
+}

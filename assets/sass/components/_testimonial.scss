@@ -1,0 +1,47 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.testimonial {
+  @include card(1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0;
+
+  p {
+    color: $ink-900;
+    font-size: .9rem;
+    font-weight: $fw-medium;
+  }
+
+  &--featured p {
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  &__mark {
+    font-size: 3rem;
+    line-height: .6;
+    font-weight: $fw-extrabold;
+    color: $blue-600;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-top: auto;
+
+    cite {
+      display: block;
+      font-style: normal;
+      font-weight: $fw-bold;
+      font-size: .78rem;
+      color: $ink-900;
+    }
+
+    small { font-size: .72rem; color: $ink-500; }
+
+    .stars { margin-left: auto; }
+  }
+}

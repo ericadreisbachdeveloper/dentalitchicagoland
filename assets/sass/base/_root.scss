@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as *;
+
+// CSS custom properties so JS / inline styles can tap the tokens
+:root {
+  --navy: #{$navy-800};
+  --blue: #{$blue-600};
+  --yellow: #{$yellow-400};
+  --ink: #{$ink-900};
+  --muted: #{$ink-500};
+  --line: #{$line};
+  --tint: #{$tint};
+  --header-h: #{$header-h};
+}
+
+html { scroll-padding-top: calc(var(--header-h) + 1rem); }

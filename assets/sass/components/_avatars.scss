@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as *;
+
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: .65rem;
+  font-weight: $fw-bold;
+  color: $white;
+  flex-shrink: 0;
+
+  &--blue   { background: $blue-600; }
+  &--slate  { background: #5b6f8a; }
+  &--navy   { background: $navy-700; }
+  &--yellow { background: $yellow-400; color: $navy-900; }
+}
+
+.avatar-stack {
+  display: flex;
+
+  .avatar {
+    border: 2px solid $white;
+
+    & + .avatar { margin-left: -.5rem; }
+  }
+}
+
+.social-proof {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  font-size: .78rem;
+  color: $ink-500;
+}

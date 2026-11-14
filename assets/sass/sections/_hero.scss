@@ -1,0 +1,67 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: fluid(48, 80);
+  background: linear-gradient(to bottom, $tint 0, $tint 82%, $white 82%);
+
+  // Faint concentric rings behind the dashboard
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6%;
+    right: -8%;
+    width: 640px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0 60px, rgba($blue-600, .05) 61px 62px);
+    pointer-events: none;
+  }
+
+  &__grid {
+    position: relative;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    padding-bottom: 3.5rem;
+
+    @include mq(lg) { grid-template-columns: 1.1fr 1fr; }
+  }
+
+  &__title {
+    font-size: fluid(38, 56);
+    margin-bottom: 1.25rem;
+    max-width: 12ch;
+    position: relative;
+    z-index: 0;
+  }
+
+  &__lead {
+    max-width: 30rem;
+    font-size: .95rem;
+    margin-bottom: 2rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 300px;
+    padding: 2rem 1rem;
+
+    @include mq-down(sm) {
+      .float-card { display: none; }
+    }
+  }
+}

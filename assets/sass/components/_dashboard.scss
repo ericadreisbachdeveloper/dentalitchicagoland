@@ -1,0 +1,113 @@
+@use "../abstracts/variables" as *;
+
+// Decorative "Cusp Command Center" card in the hero
+.dashboard {
+  position: relative;
+  width: min(100%, 300px);
+  padding: 1.1rem;
+  border-radius: $radius-lg;
+  background: $navy-800;
+  color: rgba($white, .7);
+  font-size: .72rem;
+  box-shadow: $shadow-lg;
+  transform: rotate(2deg);
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-weight: $fw-bold;
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
+  &__label { opacity: .7; }
+
+  &__headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .9rem;
+
+    strong { font-size: 1rem; color: $white; }
+  }
+
+  &__rows {
+    display: grid;
+    gap: .45rem;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: .55rem .7rem;
+      border-radius: $radius-sm;
+      background: rgba($white, .06);
+    }
+
+    .is-good { color: $yellow-400; font-weight: $fw-semibold; }
+  }
+
+  &__bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 4px;
+    height: 34px;
+    margin-top: .9rem;
+
+    i {
+      width: 6px;
+      height: var(--h);
+      border-radius: 2px;
+      background: $blue-500;
+
+      &.is-accent { background: $yellow-400; }
+    }
+  }
+}
+
+.score-ring {
+  --size: 2.4rem;
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  font-size: .7rem;
+  font-weight: $fw-bold;
+  color: $white;
+  background:
+    radial-gradient(closest-side, $navy-800 78%, transparent 80% 100%),
+    conic-gradient($yellow-400 calc(var(--score) * 1%), rgba($white, .15) 0);
+}
+
+.float-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .7rem .9rem;
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  font-size: .7rem;
+  color: $ink-900;
+
+  small { display: block; color: $ink-300; }
+  strong { font-weight: $fw-bold; }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: $blue-100;
+    color: $blue-600;
+
+    &--yellow { background: $yellow-400; color: $navy-900; border-radius: $radius-sm; }
+  }
+
+  &--status   { top: 0; right: 0; }
+  &--response { bottom: 12%; left: 0; }
+}
