@@ -54,10 +54,10 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
         */ ?>
       <div class="hero__visual" aria-hidden="true">
         <div class="dashboard">
-          <p class="dashboard__title"><span class="dot dot--yellow"></span> Your Dashboard</p>
+          <p class="dashboard__title"><span class="dot dot--yellow"></span>Dashboard</p>
           <p class="dashboard__label">Practice health</p>
           <div class="dashboard__headline">
-            <strong>Looking great</strong>
+            <strong>Strong</strong>
             <span class="score-ring" style="--score:98">98</span>
           </div>
           <ul class="dashboard__rows">
