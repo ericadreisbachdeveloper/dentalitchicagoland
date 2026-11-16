@@ -72,14 +72,17 @@ html {
 
 body {
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #36465a;
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: #0f1b2b;
   font-weight: 700;
   line-height: 1.08;
@@ -341,7 +344,6 @@ h3 {
 .primary-nav__link {
   display: block;
   padding: 0.5rem 0;
-  font-size: 0.95rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -353,7 +355,6 @@ h3 {
   align-items: center;
   gap: 0.45rem;
   font-weight: 700;
-  font-size: 0.9rem;
 }
 @media (min-width: 992px) {
   .primary-nav {
@@ -374,10 +375,6 @@ h3 {
   }
   .primary-nav__link {
     padding: 0;
-    font-size: 0.82rem;
-  }
-  .primary-nav__phone {
-    font-size: 0.82rem;
   }
 }
 
@@ -472,8 +469,8 @@ h3 {
   transform: translateX(3px);
 }
 .btn--sm {
+  font-size: 1rem;
   padding: 0.6rem 1rem;
-  font-size: 0.78rem;
 }
 .btn--primary {
   background: #ffdf3a;
@@ -517,7 +514,7 @@ h3 {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -626,7 +623,7 @@ h3 {
   border-radius: 14px;
   background: #0f2a47;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.72rem;
+  font-size: 1rem;
   box-shadow: 0 24px 60px rgba(11, 32, 56, 0.18);
   transform: rotate(2deg);
 }
@@ -691,7 +688,7 @@ h3 {
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
   background: radial-gradient(closest-side, #0f2a47 78%, transparent 80% 100%), conic-gradient(#ffdf3a calc(var(--score) * 1%), rgba(255, 255, 255, 0.15) 0);
@@ -1298,3 +1295,5 @@ h3 {
 .phone-cta:hover strong {
   color: #2565b5;
 }
+
+/*# sourceMappingURL=main.css.map */

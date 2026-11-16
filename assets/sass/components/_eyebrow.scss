@@ -6,7 +6,7 @@
   align-items: center;
   gap: .75rem;
   margin-bottom: 1.25rem;
-  font-size: .7rem;
+  font-size: 1rem;
   font-weight: $fw-bold;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -19,6 +19,12 @@
     background: currentColor;
   }
 
-  &--center { justify-content: center; }
-  &--light  { color: $blue-100; opacity: .8; }
+  &--center {
+    justify-content: center;
+  }
+
+  &--light {
+    color: $blue-100;
+    opacity: .8;
+  }
 }

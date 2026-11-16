@@ -8,7 +8,7 @@
   border-radius: $radius-lg;
   background: $navy-800;
   color: rgba($white, .7);
-  font-size: .72rem;
+  font-size: 1rem;
   box-shadow: $shadow-lg;
   transform: rotate(2deg);
 
@@ -21,7 +21,9 @@
     margin-bottom: 1rem;
   }
 
-  &__label { opacity: .7; }
+  &__label {
+    opacity: .7;
+  }
 
   &__headline {
     display: flex;
@@ -29,7 +31,10 @@
     justify-content: space-between;
     margin-bottom: .9rem;
 
-    strong { font-size: 1rem; color: $white; }
+    strong {
+      font-size: 1rem;
+      color: $white;
+    }
   }
 
   &__rows {
@@ -44,7 +49,10 @@
       background: rgba($white, .06);
     }
 
-    .is-good { color: $yellow-400; font-weight: $fw-semibold; }
+    .is-good {
+      color: $yellow-400;
+      font-weight: $fw-semibold;
+    }
   }
 
   &__bars {
@@ -61,7 +69,9 @@
       border-radius: 2px;
       background: $blue-500;
 
-      &.is-accent { background: $yellow-400; }
+      &.is-accent {
+        background: $yellow-400;
+      }
     }
   }
 }
@@ -73,7 +83,7 @@
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-  font-size: .7rem;
+  font-size: 1rem;
   font-weight: $fw-bold;
   color: $white;
   background:
@@ -93,8 +103,14 @@
   font-size: .7rem;
   color: $ink-900;
 
-  small { display: block; color: $ink-300; }
-  strong { font-weight: $fw-bold; }
+  small {
+    display: block;
+    color: $ink-300;
+  }
+
+  strong {
+    font-weight: $fw-bold;
+  }
 
   &__icon {
     display: grid;
@@ -105,9 +121,20 @@
     background: $blue-100;
     color: $blue-600;
 
-    &--yellow { background: $yellow-400; color: $navy-900; border-radius: $radius-sm; }
+    &--yellow {
+      background: $yellow-400;
+      color: $navy-900;
+      border-radius: $radius-sm;
+    }
   }
 
-  &--status   { top: 0; right: 0; }
-  &--response { bottom: 12%; left: 0; }
+  &--status {
+    top: 0;
+    right: 0;
+  }
+
+  &--response {
+    bottom: 12%;
+    left: 0;
+  }
 }

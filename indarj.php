@@ -1,11 +1,11 @@
 <?php
 /**
- * index.php — Cusp Dental IT home page
+ * index.php — Chicagoland Dental IT home page
  */
 
 require __DIR__ . '/partials/config.php';
 
-$page_title       = 'Cusp Dental IT | Technology that keeps your practice smiling';
+$page_title       = 'Chicagoland Dental IT - Technology that keeps your practice smiling';
 $page_description = 'Secure, responsive IT support built exclusively for dental practices. Free IT assessment, 24/7 monitoring, and a team that understands patient care.';
 $body_class       = 'page-home';
 
@@ -29,7 +29,7 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
         <p class="hero__lead">Secure, responsive IT support that understands your software, your team, and the pace of patient care.</p>
 
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#contact">Get your free IT assessment <?php require $arrow; ?></a>
+          <a class="btn btn--primary" href="#contact">Call for your free IT assessment <?php require $arrow; ?></a>
           <a class="btn btn--text" href="#team-video">
             <svg class="icon icon--play" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg>
             See how it works
@@ -44,7 +44,7 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
           </ul>
           <div>
             <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <p>Loved by 200+ dental teams</p>
+            <p>Loved by dental teams</p>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
         */ ?>
       <div class="hero__visual" aria-hidden="true">
         <div class="dashboard">
-          <p class="dashboard__title"><span class="dot dot--yellow"></span> Cusp Command Center</p>
+          <p class="dashboard__title"><span class="dot dot--yellow"></span> Your Dashboard</p>
           <p class="dashboard__label">Practice health</p>
           <div class="dashboard__headline">
             <strong>Looking great</strong>
@@ -95,7 +95,7 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
     <?php /*
        VSL
        */ ?>
-  <section class="section team" id="why-cusp" aria-labelledby="team-title">
+  <section class="section team" id="why-us" aria-labelledby="team-title">
     <div class="container container--narrow text-center">
       <p class="eyebrow eyebrow--center">Meet your dental IT team</p>
       <h2 class="section-title" id="team-title">Less downtime. Less worry.<br><span class="text-accent">More time for patients.</span></h2>
@@ -165,10 +165,10 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
     <div class="container">
       <div class="section-head section-head--split">
         <div>
-          <p class="eyebrow">A refreshingly simple process</p>
-          <h2 class="section-title" id="process-title">From IT stress to<br><span class="text-accent">total confidence.</span></h2>
+          <h2 class="eyebrow">How It Works</h2>
+          <p class="section-title" id="process-title">From IT stress to<br><span class="text-accent">total confidence.</span></p>
         </div>
-        <p class="section-lead">We make changing IT partners feel simple, transparent, and surprisingly painless.</p>
+        <p class="section-lead">We make changing IT partners feel simple, transparent, and surprisingly&nbsp;painless.</p>
       </div>
 
       <?php
@@ -218,8 +218,8 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
        */ ?>
   <section class="section section--dark results" id="results" aria-labelledby="results-title">
     <div class="container">
-      <p class="eyebrow eyebrow--light">Real practices. Measurable results.</p>
-      <h2 class="section-title" id="results-title">See what happens when<br>IT finally <span class="text-yellow">works.</span></h2>
+      <h2 class="eyebrow eyebrow--light">RESULTS</h2>
+      <p class="section-title" id="results-title">See what happens when your IT finally <span class="text-yellow">works.</span></p>
 
       <?php
         $cases = array(
@@ -277,20 +277,24 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
   <section class="section contact" id="contact" aria-labelledby="contact-title">
     <div class="container contact__grid">
       <div class="contact__intro">
-        <p class="eyebrow">Let’s talk</p>
-        <h2 class="section-title section-title--lg" id="contact-title">Your practice deserves IT that <span class="text-accent">just works.</span></h2>
-        <p>Give us a call and tell us a little about your practice. We’ll show you where your technology is strong, where it’s exposed, and what to do next.</p>
+        <h2 class="eyebrow" id="contact">CONTACT </h2>
+        <p class="section-title section-title--lg">Your practice deserves IT that <span class="text-accent">just works.</span></p>
+
+        <p>
+          <a class="phone-cta" href="tel:<?php echo e(SITE_PHONE_E164) ?>">
+          <span class="phone-cta__icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          </span>
+          <span><small>Call now to get started </small><strong><?php echo e(SITE_PHONE) ?></strong></span>
+        </a>
+        </p>
+
         <ul class="checklist">
           <li>No-obligation discovery call</li>
           <li>Practical advice from dental IT experts</li>
           <li>Clear recommendations, not technical jargon</li>
         </ul>
-        <a class="phone-cta" href="tel:<?php echo e(SITE_PHONE_E164) ?>">
-          <span class="phone-cta__icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-          </span>
-          <span><small>Prefer to call?</small><strong><?php echo e(SITE_PHONE) ?></strong></span>
-        </a>
+      
       </div>
 
       <div class="faq" id="faq">

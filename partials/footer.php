@@ -12,7 +12,7 @@
           <a class="logo logo--light" href="<?php echo e(SITE_URL) ?>/" aria-label="<?php echo e(SITE_NAME) ?> home">
             <img src="<?php echo asset('img/logo-mark.svg') ?>" alt="" width="28" height="32">
             <span class="logo__text">
-              <strong>Cusp</strong>
+              <strong>Chicagoland</strong>
               <span>Dental IT</span>
             </span>
           </a>

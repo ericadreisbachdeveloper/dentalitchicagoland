@@ -4,8 +4,13 @@
  * Site-wide constants and tiny helpers shared by every partial.
  */
 
-define('SITE_NAME', 'Chicagoland Dental IT');
+$root = dirname(__DIR__);
 
+define('ROOT_PATH', dirname(__DIR__));
+define('IS_DEV', is_file($root . '/assets/.dev') && is_file($root . '/assets/css/main.css'));
+define('CSS_FILE', IS_DEV ? 'css/main.css' : 'css/main.min.css');
+
+define('SITE_NAME', 'Chicagoland Dental IT');
 
 if ( $_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === 'dentalitchicagoland.local' ) {
     define('LOCAL', 'local');
@@ -14,11 +19,9 @@ if ( $_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === 'den
     define('SITE_URL', 'https://' . $_SERVER['HTTP_HOST']);
 }
 
-
-
 define('SITE_PHONE', '(888) 550-7111');
 define('SITE_PHONE_E164', '+18885507111');
-define('SITE_EMAIL', 'hello@cuspdentalit.com');
+define('SITE_EMAIL', 'hello@dentalitchicagoland.com');
 
 /** Escape output for HTML. */
 function e( $value ): string {
@@ -39,23 +42,23 @@ function asset( string $path ): string {
 $nav_items = array(
     array(
         'label' => 'How it works',
-        'href'  => '#how-it-works',
+        'href'  => SITE_URL . '/#how-it-works',
     ),
     array(
         'label' => 'Results',
-        'href'  => '#results',
+        'href'  => SITE_URL . '#results',
     ),
     array(
         'label' => 'Why Us',
-        'href'  => '#why-us',
+        'href'  => SITE_URL . '#why-us',
     ),
     array(
         'label' => 'FAQ',
-        'href'  => '#faq',
+        'href'  => SITE_URL . '#faq',
     ),
     array(
         'label' => 'Services',
-        'href'  => '/services/',
+        'href'  => SITE_URL . '/services/',
     ),
 );
 

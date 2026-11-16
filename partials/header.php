@@ -32,7 +32,7 @@ $body_class       = $body_class ?? '';
     <meta property="og:title" content="<?php echo e($page_title) ?>">
     <meta property="og:description" content="<?php echo e($page_description) ?>">
     <meta property="og:url" content="<?php echo e($page_canonical) ?>">
-    <meta property="og:image" content="<?php echo e(SITE_URL) ?>/assets/img/og-image.jpg">
+    <meta property="og:image" content="<?php echo e(SITE_URL) ?>/public/og-img.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Fonts -->
@@ -41,7 +41,10 @@ $body_class       = $body_class ?? '';
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles (compiled from /assets/sass/main.scss) -->
-    <link rel="stylesheet" href="<?php echo asset('css/main.min.css') ?>">
+      <!-- Styles (compiled from /assets/sass/main.scss)
+       dev:   npm run dev   → css/main.css
+       build: npm run build → css/main.min.css -->
+  <link rel="stylesheet" href="<?php echo asset(CSS_FILE) ?>">
 
     <?php require __DIR__ . '/favicons.php'; ?>
     <?php require __DIR__ . '/schema.php'; ?>
