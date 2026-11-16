@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as *;
+
+// Yellow circle with a two-digit number: (01)
+.num-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: $yellow-400;
+  color: $navy-900;
+  font-size: .62rem;
+  font-weight: $fw-extrabold;
+  letter-spacing: 0;
+}

@@ -4,26 +4,24 @@
  * Site-wide constants and tiny helpers shared by every partial.
  */
 
-$root = dirname(__DIR__);
-
-define('ROOT_PATH', dirname(__DIR__));
-define('IS_DEV', is_file($root . '/assets/.dev') && is_file($root . '/assets/css/main.css'));
-define('CSS_FILE', IS_DEV ? 'css/main.css' : 'css/main.min.css');
-
-define('SITE_NAME', 'Chicagoland Dental IT');
-
-if ( $_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === 'dentalitchicagoland.local' ) {
-    define('LOCAL', 'local');
-    define('SITE_URL', 'https://dentalitchicagoland.local');
-} else {
-    define('SITE_URL', 'https://' . $_SERVER['HTTP_HOST']);
-}
-
+define('SITE_NAME', 'Dental IT Chicagoland');
+define('SITE_URL', 'https://www.dentalitchicagoland.com'); // no trailing slash — confirm real domain
 define('SITE_PHONE', '(888) 550-7111');
 define('SITE_PHONE_E164', '+18885507111');
-define('SITE_EMAIL', 'hello@dentalitchicagoland.com');
+define('SITE_EMAIL', 'hello@dentalitchicagoland.com');      // confirm real address
 
-/** Escape output for HTML. */
+/**
+ * Dev / production switch (marker-file approach, works with MAMP).
+ *   npm run dev   -> creates  assets/.dev  -> loads css/main.css (readable + source map)
+ *   npm run build -> deletes  assets/.dev  -> loads css/main.min.css
+ * Also requires main.css to exist, so a stray marker on a live server
+ * still falls back to the minified file.
+ */
+define('ROOT_PATH', dirname(__DIR__));
+define('IS_DEV', is_file(ROOT_PATH . '/assets/.dev') && is_file(ROOT_PATH . '/assets/css/main.css'));
+define('CSS_FILE', IS_DEV ? 'css/main.css' : 'css/main.min.css');
+
+/**  Small helper that makes any value safe to print inside HTML */
 function e( $value ): string {
     return htmlspecialchars( (string) $value, ENT_QUOTES, 'UTF-8');
 }
@@ -38,27 +36,70 @@ function asset( string $path ): string {
     return '/assets/' . ltrim($path, '/') . '?v=' . $ver;
 }
 
-/** Primary navigation items (used by nav.php and footer.php). */
+require_once __DIR__ . '/icons.php';
+
+/**
+ * Current URL path, normalised with a trailing slash: "/", "/services/".
+ * Used to mark the active nav link.
+ */
+function current_path(): string {
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $path = preg_replace('#/index\.php$#', '/', $path);
+    return rtrim($path, '/') . '/';
+}
+
+/**
+ * Is this nav link the current page? Only real pages count —
+ * homepage anchors like "/#faq" are never "active".
+ */
+function is_current( string $href ): bool {
+    return strpos($href, '#') === false && $href === current_path();
+}
+
+/**
+ * Primary navigation (nav.php).
+ * Homepage sections use "/#id" so they also work from other pages.
+ */
 $nav_items = array(
     array(
-        'label' => 'How it works',
-        'href'  => SITE_URL . '/#how-it-works',
+        'label' => 'How It Works',
+        'href'  => '/#how-it-works',
     ),
     array(
         'label' => 'Results',
-        'href'  => SITE_URL . '#results',
+        'href'  => '/#results',
     ),
     array(
         'label' => 'Why Us',
-        'href'  => SITE_URL . '#why-us',
+        'href'  => '/#why-us',
     ),
     array(
         'label' => 'FAQ',
-        'href'  => SITE_URL . '#faq',
+        'href'  => '/#faq',
     ),
     array(
         'label' => 'Services',
-        'href'  => SITE_URL . '/services/',
+        'href'  => '/services/',
+    ),
+);
+
+/** Footer navigation (footer.php) — differs from the header in the design. */
+$footer_nav_items = array(
+    array(
+        'label' => 'Home',
+        'href'  => '/',
+    ),
+    array(
+        'label' => 'Services',
+        'href'  => '/services/',
+    ),
+    array(
+        'label' => 'Results',
+        'href'  => '/#results',
+    ),
+    array(
+        'label' => 'FAQ',
+        'href'  => '/#faq',
     ),
 );
 

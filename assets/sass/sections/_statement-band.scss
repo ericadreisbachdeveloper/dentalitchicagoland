@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+// Navy band: short yellow kicker | large statement
+.statement-band {
+  padding-block: fluid(40, 56);
+  background: $navy-800;
+
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+
+    @include mq(md) { grid-template-columns: 1fr 2fr; gap: 0; }
+  }
+
+  &__kicker {
+    max-width: 16rem;
+    font-size: .68rem;
+    font-weight: $fw-bold;
+    line-height: 1.7;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: $yellow-400;
+
+    @include mq(md) {
+      max-width: none;
+      padding-right: 3rem;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid rgba($white, .15);
+    }
+  }
+
+  &__text {
+    font-size: fluid(16, 20);
+    line-height: 1.6;
+    color: $white;
+    letter-spacing: -0.01em;
+
+    @include mq(md) { padding-left: 3rem; }
+  }
+}

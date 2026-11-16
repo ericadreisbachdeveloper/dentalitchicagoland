@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+// Interior page hero: text left, framed photo right (Services)
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: fluid(48, 88);
+  background: $tint;
+
+  // Faint concentric rings, matching the home hero
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -12%;
+    width: 640px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0 60px, rgba($blue-600, .05) 61px 62px);
+    pointer-events: none;
+  }
+
+  &__grid {
+    position: relative;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @include mq(lg) { grid-template-columns: 1.15fr 1fr; gap: 4rem; }
+  }
+
+  &__title {
+    font-size: fluid(36, 54);
+    max-width: 13ch;
+    margin-bottom: 1.25rem;
+  }
+
+  &__lead {
+    max-width: 30rem;
+    font-size: .92rem;
+    margin-bottom: 2rem;
+  }
+
+  &__media {
+    margin: 0;
+
+    img { aspect-ratio: 1 / 1; }
+  }
+}

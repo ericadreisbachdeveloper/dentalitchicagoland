@@ -49,5 +49,14 @@ $schema = [
         ],
     ],
 ];
+
+// FAQPage markup only belongs on pages that actually show the FAQ.
+// Set $show_faq_schema = true; in that page before including header.php.
+if (empty($show_faq_schema)) {
+    $schema['@graph'] = array_values(array_filter(
+        $schema['@graph'],
+        static fn ($node) => $node['@type'] !== 'FAQPage'
+    ));
+}
 ?>
   <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) ?></script>

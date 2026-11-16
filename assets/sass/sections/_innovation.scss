@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// "Innovation only works when the infrastructure works."
+.innovation {
+  &__grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+
+    @include mq(lg) { grid-template-columns: 1fr 1.05fr; gap: 4rem; }
+  }
+
+  &__intro {
+    .section-title { max-width: 11ch; }
+
+    > p:not(.eyebrow) {
+      max-width: 26rem;
+      font-size: .82rem;
+      margin-bottom: 2rem;
+    }
+  }
+}

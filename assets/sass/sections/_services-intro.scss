@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+
+// "One partner for your entire technology ecosystem."
+.services-intro {
+  padding-block: fluid(56, 88) fluid(32, 48);
+  border-bottom: 1px solid $line;
+
+  .section-head { margin-bottom: 0; }
+  .section-title { max-width: 16ch; }
+  .section-lead { font-size: .85rem; max-width: 24rem; }
+}

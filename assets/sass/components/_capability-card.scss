@@ -1,0 +1,43 @@
+@use "../abstracts/variables" as *;
+
+// Stacked cards on a dark background ("Ready for what's next")
+.capability-list {
+  display: grid;
+  gap: .75rem;
+}
+
+.capability-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  background: rgba($white, .04);
+  border: 1px solid rgba($white, .1);
+  border-radius: $radius-sm;
+  font-size: .75rem;
+  color: rgba($white, .65);
+  transition: background-color $dur $ease, border-color $dur $ease;
+
+  &:hover {
+    background: rgba($white, .07);
+    border-color: rgba($yellow-400, .35);
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: $radius-sm;
+    background: rgba($yellow-400, .12);
+    color: $yellow-400;
+    font-size: 1rem;
+  }
+
+  &__title {
+    margin-bottom: .25rem;
+    font-size: .85rem;
+    color: $white;
+  }
+}

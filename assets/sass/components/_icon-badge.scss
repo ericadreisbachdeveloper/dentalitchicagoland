@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as *;
+
+// Small yellow square icon pinned to the corner of a photo.
+// Parent needs position: relative.
+.icon-badge {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-sm;
+  background: $yellow-400;
+  color: $navy-900;
+  font-size: 1.15rem;
+  box-shadow: 0 0 0 4px rgba($white, .35);
+}

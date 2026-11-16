@@ -9,62 +9,60 @@
  *   $page_description string
  *   $page_canonical   string (absolute URL)
  *   $body_class       string
+ *   $show_faq_schema  bool   (true only on pages that display the FAQ)
  */
 
+require_once __DIR__ . '/config.php';
 
-$page_title       = $page_title ?? SITE_NAME . ' - IT Support Built Exclusively for Dental Practices';
+$page_title       = $page_title       ?? SITE_NAME . ' | IT Support Built Exclusively for Dental Practices';
 $page_description = $page_description ?? 'Secure, responsive IT support that understands your dental software, your team, and the pace of patient care.';
-$page_canonical   = $page_canonical ?? SITE_URL . '/';
-$body_class       = $body_class ?? '';
+$page_canonical   = $page_canonical   ?? SITE_URL . '/';
+$body_class       = $body_class       ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo e($page_title) ?></title>
-    <meta name="description" content="<?php echo e($page_description) ?>">
-    <link rel="canonical" href="<?php echo e($page_canonical) ?>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?= e($page_title) ?></title>
+  <meta name="description" content="<?= e($page_description) ?>">
+  <link rel="canonical" href="<?= e($page_canonical) ?>">
 
-    <!-- Open Graph / social -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="<?php echo e(SITE_NAME) ?>">
-    <meta property="og:title" content="<?php echo e($page_title) ?>">
-    <meta property="og:description" content="<?php echo e($page_description) ?>">
-    <meta property="og:url" content="<?php echo e($page_canonical) ?>">
-    <meta property="og:image" content="<?php echo e(SITE_URL) ?>/public/og-img.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<?= e(SITE_NAME) ?>">
+  <meta property="og:title" content="<?= e($page_title) ?>">
+  <meta property="og:description" content="<?= e($page_description) ?>">
+  <meta property="og:url" content="<?= e($page_canonical) ?>">
+  <meta property="og:image" content="<?= e(SITE_URL) ?>/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Styles (compiled from /assets/sass/main.scss) -->
-      <!-- Styles (compiled from /assets/sass/main.scss)
+  <!-- Styles (compiled from /assets/sass/main.scss)
        dev:   npm run dev   → css/main.css
        build: npm run build → css/main.min.css -->
-  <link rel="stylesheet" href="<?php echo asset(CSS_FILE) ?>">
+  <link rel="stylesheet" href="<?= asset(CSS_FILE) ?>">
 
-    <?php require __DIR__ . '/favicons.php'; ?>
-    <?php require __DIR__ . '/schema.php'; ?>
-
+  <?php include __DIR__ . '/favicons.php'; ?>
+  <?php include __DIR__ . '/schema.php'; ?>
 </head>
+<body class="<?= e($body_class) ?>">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body class="<?php echo e($body_class) ?>">
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="logo" href="/" aria-label="<?= e(SITE_NAME) ?> home">
+        <img src="<?= asset('img/logo-mark.svg') ?>" alt="" width="28" height="32">
+        <span class="logo__text">
+          <strong>Dental IT</strong>
+          <span>Chicagoland</span>
+        </span>
+      </a>
 
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header" id="top">
-        <div class="container site-header__inner">
-        <a class="logo" href="<?php echo e(SITE_URL) ?>/" aria-label="<?php echo e(SITE_NAME) ?> home">
-            <img src="<?php echo asset('img/logo-mark.svg') ?>" alt="" width="28" height="32">
-            <span class="logo__text">
-            <strong>Chicagoland</strong>
-            <span>Dental IT</span>
-            </span>
-        </a>
-
-        <?php require __DIR__ . '/nav.php'; ?>
-        </div>
-    </header>
+      <?php include __DIR__ . '/nav.php'; ?>
+    </div>
+  </header>

@@ -1,5 +1,5 @@
 // =============================================================
-// Chicagoland Dental IT — main stylesheet
+// Cusp Dental IT — main stylesheet
 // Compile:  npx sass assets/sass/main.scss assets/css/main.min.css --style=compressed --no-source-map
 // Watch:    npx sass --watch assets/sass/main.scss:assets/css/main.css
 // =============================================================
@@ -33,11 +33,24 @@
 @use "components/case-card";
 @use "components/accordion";
 @use "components/checklist";
+@use "components/num-badge";
+@use "components/icon-badge";
+@use "components/photo-frame";
+@use "components/service-row";
+@use "components/capability-card";
 
 // 5. Sections (page-specific composition)
+// Home
 @use "sections/hero";
 @use "sections/team";
 @use "sections/trust";
 @use "sections/process";
 @use "sections/results";
 @use "sections/contact";
+
+// Services
+@use "sections/page-hero";
+@use "sections/statement-band";
+@use "sections/services-intro";
+@use "sections/innovation";
+@use "sections/cta-band";

@@ -1,0 +1,32 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+// Blue closing call-to-action band
+.cta-band {
+  padding-block: fluid(56, 80);
+  background: $blue-600;
+  color: rgba($white, .85);
+
+  &__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+
+    @include mq(md) { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+  }
+
+  .eyebrow--light { color: $white; opacity: .85; }
+
+  &__title {
+    font-size: fluid(28, 38);
+    color: $white;
+    max-width: 18ch;
+  }
+
+  &__action p {
+    max-width: 22rem;
+    font-size: .85rem;
+    margin-bottom: 1.25rem;
+  }
+}

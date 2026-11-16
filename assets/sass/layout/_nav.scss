@@ -16,22 +16,12 @@
   }
 
   &[aria-expanded="true"] {
-    .nav-toggle__bar:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-toggle__bar:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle__bar:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
+    .nav-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle__bar:nth-child(2) { opacity: 0; }
+    .nav-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   }
 
-  @include mq(lg) {
-    display: none;
-  }
+  @include mq(lg) { display: none; }
 }
 
 .primary-nav {
@@ -64,21 +54,21 @@
   &__link {
     display: block;
     padding: .5rem 0;
-    //font-size: 1rem;
+    font-size: .95rem;
     font-weight: $fw-medium;
     color: rgba($white, .9);
 
-    &:hover {
-      color: $yellow-400;
-    }
+    &:hover,
+    &[aria-current="page"] { color: $yellow-400; }
+
+    &[aria-current="page"] { font-weight: $fw-semibold; }
   }
 
+  // Phone number styled as the yellow button (.btn .btn--primary)
   &__phone {
-    display: inline-flex;
-    align-items: center;
-    gap: .45rem;
-    font-weight: $fw-bold;
-    //font-size: .9rem;
+    align-self: flex-start;
+
+    .icon { font-size: 1rem; }
   }
 
   // Desktop: inline
@@ -101,11 +91,9 @@
 
     &__link {
       padding: 0;
-      //font-size: .82rem;
+      font-size: .82rem;
     }
 
-    &__phone {
-      //font-size: .82rem;
-    }
+    &__phone { align-self: center; }
   }
 }

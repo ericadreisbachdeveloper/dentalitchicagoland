@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+
+// Alternating image + text rows on the Services page.
+// Default: image left on a white background.
+// --reverse: image right on a tinted background.
+.service-row {
+  padding-block: fluid(56, 96);
+  background: $white;
+
+  &--reverse { background: $tint; }
+
+  &__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+
+    @include mq(md) {
+      grid-template-columns: 1.18fr 1fr;
+      gap: clamp(2rem, 6vw, 4.5rem);
+    }
+  }
+
+  // Image first on desktop for default rows (content stays first in the HTML)
+  &__media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: $radius;
+    box-shadow: $shadow;
+
+    img {
+      width: 100%;
+      height: clamp(240px, 30vw, 340px);
+      object-fit: cover;
+    }
+
+    @include mq(md) { order: -1; }
+  }
+
+  @include mq(md) {
+    &--reverse {
+      .service-row__grid { grid-template-columns: 1.18fr 1fr; }
+      .service-row__media { order: 0; }
+    }
+  }
+
+  &__title {
+    font-size: fluid(26, 34);
+    max-width: 14ch;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    max-width: 30rem;
+    font-size: .82rem;
+    color: $ink-500;
+  }
+}

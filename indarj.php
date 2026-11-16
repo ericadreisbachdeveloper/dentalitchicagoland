@@ -208,7 +208,7 @@ $arrow = __DIR__ . '/partials/icon-arrow.php';
 
       <div class="callout-bar">
         <p><span class="check" aria-hidden="true"></span> No long-term guesswork. Just a clear plan and a team you can count on.</p>
-        <a class="btn btn--dark btn--sm" href="#contact">Start with a conversation <?php require $arrow; ?></a>
+        <a class="btn btn--dark btn--sm" href="#contact">Start by calling <?php require $arrow; ?></a>
       </div>
     </div>
   </section>
