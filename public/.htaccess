@@ -1,0 +1,28 @@
+# =============================================================
+# public/.htaccess — this folder is the document root.
+# Source code (partials/, src/, package.json…) lives one level up,
+# outside the web root, so it needs no blocking rules here.
+# =============================================================
+
+# Serve index.php for folders (/, /services/), and never list folder contents
+DirectoryIndex index.php
+Options -Indexes
+
+# Hidden files (.gitkeep, any stray dotfile) — keep /.well-known/ for SSL checks
+RedirectMatch 404 /\.(?!well-known)
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Enable only once HTTPS works everywhere on the domain:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Content Security Policy: test in Report-Only mode first.
+  # Note: the home hero uses inline style="--score:…" attributes, so style-src
+  # needs 'unsafe-inline' (or move those values into the stylesheet).
+  # Header always set Content-Security-Policy-Report-Only "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-src https://www.youtube-nocookie.com"
+</IfModule>

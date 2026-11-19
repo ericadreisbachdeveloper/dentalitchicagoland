@@ -11,17 +11,26 @@ define('SITE_PHONE_E164', '+18885507111');
 define('SITE_EMAIL', 'hello@dentalitchicagoland.com');      // confirm real address
 
 /**
+ * Filesystem paths.
+ *   ROOT_PATH   project root (partials/, src/, package.json — not web-accessible)
+ *   PUBLIC_PATH the web server's document root (pages, assets, media)
+ * Hosts that force "public_html" work too: upload the contents of public/
+ * into public_html/ and keep partials/ one level above it.
+ */
+define('ROOT_PATH', dirname(__DIR__));
+define('PUBLIC_PATH', is_dir(ROOT_PATH . '/public') ? ROOT_PATH . '/public' : ROOT_PATH . '/public_html');
+
+/**
  * Dev / production switch (marker-file approach, works with MAMP).
- *   npm run dev   -> creates  assets/.dev  -> loads css/main.css (readable + source map)
- *   npm run build -> deletes  assets/.dev  -> loads css/main.min.css
+ *   npm run dev   -> creates  .dev (project root) -> loads css/main.css (readable + source map)
+ *   npm run build -> deletes  .dev                -> loads css/main.min.css
  * Also requires main.css to exist, so a stray marker on a live server
  * still falls back to the minified file.
  */
-define('ROOT_PATH', dirname(__DIR__));
-define('IS_DEV', is_file(ROOT_PATH . '/assets/.dev') && is_file(ROOT_PATH . '/assets/css/main.css'));
+define('IS_DEV', is_file(ROOT_PATH . '/.dev') && is_file(PUBLIC_PATH . '/assets/css/main.css'));
 define('CSS_FILE', IS_DEV ? 'css/main.css' : 'css/main.min.css');
 
-/**  Small helper that makes any value safe to print inside HTML */
+/** Escape output for HTML. */
 function e( $value ): string {
     return htmlspecialchars( (string) $value, ENT_QUOTES, 'UTF-8');
 }
@@ -31,7 +40,7 @@ function e( $value ): string {
  * Usage: <?= asset('css/main.min.css') ?>
  */
 function asset( string $path ): string {
-    $file = dirname(__DIR__) . '/assets/' . ltrim($path, '/');
+    $file = PUBLIC_PATH . '/assets/' . ltrim($path, '/');
     $ver  = is_file($file) ? filemtime($file) : '1';
     return '/assets/' . ltrim($path, '/') . '?v=' . $ver;
 }

@@ -34,7 +34,7 @@ $body_class       = $body_class ?? '';
   <meta property="og:title" content="<?php echo e($page_title) ?>">
   <meta property="og:description" content="<?php echo e($page_description) ?>">
   <meta property="og:url" content="<?php echo e($page_canonical) ?>">
-  <meta property="og:image" content="<?php echo e(SITE_URL) ?>/media/og-image.jpg">
+  <meta property="og:image" content="<?php echo e(SITE_URL) ?>/assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Fonts -->

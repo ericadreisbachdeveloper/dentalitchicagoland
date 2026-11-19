@@ -1,11 +1,26 @@
-# No folder listings when a directory has no index file
+# =============================================================
+# Project-root .htaccess
+# Serves everything from /public while the server's document root
+# is the project root. Nothing outside /public is reachable.
+# (Not needed if the host's document root points at /public.)
+# =============================================================
+
 Options -Indexes
-DirectoryIndex index.php
+RewriteEngine On
 
-# Hidden files and folders: .git, .env, .gitignore, the .dev marker
-# (but keep /.well-known/, used for SSL certificate checks)
-RedirectMatch 404 /\.(?!well-known)
+# 1. If /public/... is requested directly, redirect to the clean URL
+#    (/public/services/ → /services/), so "public" never shows in URLs.
+#    THE_REQUEST is the browser's original request, so internal
+#    rewrites below can't trigger this rule and cause a loop.
+RewriteCond %{THE_REQUEST} \s/+public(?:/([^\s?]*))?[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
 
-# Source, tooling and docs: none of these are pages
-RedirectMatch 404 ^/(partials|node_modules|build|assets/sass|assets/zz-js)(/|$)
-RedirectMatch 404 ^/(package(-lock)?\.json|README\.md|CHANGED-FILES\.txt)$
+# 2. Add the trailing slash to folders inside /public
+#    (/services → /services/). Without this, Apache adds it itself
+#    and exposes /public/ in the redirected URL.
+RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
+RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+# 3. Send every other request into /public.
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
