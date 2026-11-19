@@ -1,2 +1,11 @@
-# src https://www.inmotionhosting.com/support/website/htaccess-change-index-page/
-DirectoryIndex indarj.php
+# No folder listings when a directory has no index file
+Options -Indexes
+DirectoryIndex index.php
+
+# Hidden files and folders: .git, .env, .gitignore, the .dev marker
+# (but keep /.well-known/, used for SSL certificate checks)
+RedirectMatch 404 /\.(?!well-known)
+
+# Source, tooling and docs: none of these are pages
+RedirectMatch 404 ^/(partials|node_modules|build|assets/sass|assets/zz-js)(/|$)
+RedirectMatch 404 ^/(package(-lock)?\.json|README\.md|CHANGED-FILES\.txt)$
